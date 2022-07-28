@@ -17,10 +17,6 @@ Route::get('/', function () {
     return view('dashboard');
 });
 
-Route::get('/login', function () {
-    return view('sign-in');
-});
-
 Route::get('/register', function () {
     return view('sign-up');
 });
