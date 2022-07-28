@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MenuController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,13 +15,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('dashboard');
+    return view('layout/dashboard');
 });
 
 Route::get('/login', function () {
-    return view('sign-in');
+    return view('login/sign-in');
 });
 
 Route::get('/register', function () {
-    return view('sign-up');
+    return view('register/sign-up');
+
 });
+
+// Menu
+Route::get('/datamenu',[MenuController::class, 'index'])->name('menu');
