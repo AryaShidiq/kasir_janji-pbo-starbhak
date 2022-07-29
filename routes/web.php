@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\PegawaiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +30,6 @@ Route::get('/register', function () {
 
 // Menu
 Route::get('/datamenu',[MenuController::class, 'index'])->name('menu');
+
+// pegawai
+Route::get('/pegawai',[PegawaiController::class, 'index'])->name('menu');

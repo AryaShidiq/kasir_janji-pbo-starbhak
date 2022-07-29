@@ -2,8 +2,8 @@
 
 @section('content')
 
-<div class="row my-4">
-    <div class="col-lg-8 col-md-6 mb-md-0 mb-4">
+<div class="row my-4 d-flex justify-content-center">
+    <div class="col-lg-10 col-md-8 mb-md-0 mb-4">
         <div class="card mb-4">
             <div class="card-header pb-0">
                 <a href="/tambahmenu" type="button" class="btn btn-success mb-3">Tambah +</a>
