@@ -31,9 +31,18 @@ Route::get('/register', function () {
 
 // Menu
 Route::get('/datamenu',[MenuController::class, 'index'])->name('menu');
+Route::get('/crtmenu',[MenuController::class, 'crtmenu'])->name('crtmenu');
+
+Route::post('/strmenu',[MenuController::class, 'strmenu'])->name('strmenu');
+
+Route::get('/editmenu/{id}',[MenuController::class, 'editmenu'])->name('editmenu');
+
+Route::put('/updatemenu/{id}',[MenuController::class, 'updtmenu'])->name('updtmenu');
+
+Route::delete('/deletemenu/{id}',[MenuController::class, 'dltmenu'])->name('dltmenu');
 
 // pegawai
-Route::get('/pegawai',[PegawaiController::class, 'index'])->name('pegawai');
+Route::get('/pegawai',[PegawaiController::class, 'indexpegawai'])->name('pegawai');
 
 Route::get('/crtpegawai',[PegawaiController::class, 'crtpegawai'])->name('crtpegawai');
 
@@ -43,7 +52,7 @@ Route::get('/editpegawai/{id}',[PegawaiController::class, 'editpegawai'])->name(
 
 Route::put('/updatepegawai/{id}',[PegawaiController::class, 'updtpegawai'])->name('updtpegawai');
 
-Route::get('/deletepegawai/{id}',[PegawaiController::class, 'dltegawai'])->name('dltpegawai');
+Route::delete('/deletepegawai/{id}',[PegawaiController::class, 'dltpegawai'])->name('dltpegawai');
 
 // histor
 Route::get('/history',[HistoryController::class, 'index'])->name('history');

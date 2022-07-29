@@ -10,7 +10,7 @@ class PegawaiController extends Controller
     public function indexpegawai()
     {
         $pegawai = pegawai::all();
-        return view('pegawai.index', compact('pegawai'));
+        return view('pegawai.pegawai', compact('pegawai'));
     }
     public function crtpegawai()
     {

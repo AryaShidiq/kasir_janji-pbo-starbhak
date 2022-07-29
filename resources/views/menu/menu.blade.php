@@ -6,7 +6,7 @@
     <div class="col-lg-10 col-md-8 mb-md-0 mb-4">
         <div class="card mb-4">
             <div class="card-header pb-0">
-                <a href="/tambahmenu" type="button" class="btn btn-success mb-3">Tambah +</a>
+                <a href="/crtmenu" type="button" class="btn btn-success mb-3">Tambah +</a>
             </div>
             <div class="card-body px-0 pt-0 pb-2 text-center">
                 <div class="table-responsive p-0">
@@ -23,7 +23,7 @@
                             @php
                             $no = 1;
                             @endphp
-                            @foreach ($data as $row)
+                            @foreach ($menu as $row)
                             <tr>
                                 <th scope="row">{{ $no++ }}</th>
                                 <td>{{ $row->namamakanan }}</td>
