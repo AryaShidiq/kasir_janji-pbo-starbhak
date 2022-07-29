@@ -25,7 +25,7 @@
                             @php
                             $no = 1;
                             @endphp
-                            @foreach ($data as $row)
+                            @foreach ($history as $row)
                             <tr>
                                 <th scope="row">{{ $no++ }}</th>
                                 <td>{{ $row->namamakanan }}</td>
