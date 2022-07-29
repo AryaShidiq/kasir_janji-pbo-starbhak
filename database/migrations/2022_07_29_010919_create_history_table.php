@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('history', function (Blueprint $table) {
             $table->id();
+            $table->string('namamakanan');
+            $table->string('namapegawai');
             $table->date('tgl_transaksi');
             $table->time('wkt_trankaksi');
             $table->timestamps();

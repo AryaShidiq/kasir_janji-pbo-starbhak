@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\PegawaiController;
 
 /*
@@ -32,4 +33,17 @@ Route::get('/register', function () {
 Route::get('/datamenu',[MenuController::class, 'index'])->name('menu');
 
 // pegawai
-Route::get('/pegawai',[PegawaiController::class, 'index'])->name('menu');
+Route::get('/pegawai',[PegawaiController::class, 'index'])->name('pegawai');
+
+Route::get('/crtpegawai',[PegawaiController::class, 'crtpegawai'])->name('crtpegawai');
+
+Route::post('/strpegawai',[PegawaiController::class, 'strpegawai'])->name('strpegawai');
+
+Route::get('/editpegawai/{id}',[PegawaiController::class, 'editpegawai'])->name('editpegawai');
+
+Route::put('/updatepegawai/{id}',[PegawaiController::class, 'updtpegawai'])->name('updtpegawai');
+
+Route::get('/deletepegawai/{id}',[PegawaiController::class, 'dltegawai'])->name('dltpegawai');
+
+// histor
+Route::get('/history',[HistoryController::class, 'index'])->name('history');
