@@ -9,7 +9,7 @@ class HistoryController extends Controller
 {
     public function indexhistory()
     {
-        $history = history::all();
+        $history = History::all();
         return view('history.index', compact('history'));
     }
     public function crthistory()

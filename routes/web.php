@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\PegawaiController;
+use App\Http\Controllers\TransaksiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,4 +56,7 @@ Route::put('/updatepegawai/{id}',[PegawaiController::class, 'updtpegawai'])->nam
 Route::delete('/deletepegawai/{id}',[PegawaiController::class, 'dltpegawai'])->name('dltpegawai');
 
 // histor
-Route::get('/history',[HistoryController::class, 'index'])->name('history');
+Route::get('/history',[HistoryController::class, 'indexhistory'])->name('history');
+
+// Transaksi
+Route::get('/transaksi',[TransaksiController::class, 'indextransaksi'])->name('transaksi');
