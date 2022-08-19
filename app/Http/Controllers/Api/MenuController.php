@@ -6,6 +6,7 @@ use App\Models\menu;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\MenuResource;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class MenuController extends Controller
@@ -26,7 +27,8 @@ class MenuController extends Controller
 
             'namamakanan'     => 'required',
             'foto'     => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'stok'   => 'required',
+            'harga'   => 'required',
+            'stock'   => 'required',
         ]);
 
         //check if validation fails
@@ -42,7 +44,8 @@ class MenuController extends Controller
         $menu = menu::create([
             'namamakanan'     => $request->namamakanan,
             'foto'     => $foto->hashName(),
-            'stok'   => $request->stok,
+            'harga'   => $request->harga,
+            'stock'   => $request->stock,
         ]);
 
         //return response
@@ -60,7 +63,8 @@ class MenuController extends Controller
         //define validation rules
         $validator = Validator::make($request->all(), [
             'namamakanan'     => 'required',
-            'stok'   => 'required',
+            'harga'   => 'required',
+            'stock'   => 'required',
         ]);
 
         //check if validation fails
@@ -82,7 +86,8 @@ class MenuController extends Controller
             $menu->update([
                 'namamakanan'     => $request->namamakanan,
                 'foto'     => $foto->hashName(),
-                'stok'   => $request->stok,
+                'harga'   => $request->harga,
+                'stock'   => $request->stock,
             ]);
 
         } else {
@@ -90,7 +95,8 @@ class MenuController extends Controller
             //update post without image
             $menu->update([
                 'namamakanan'     => $request->namamakanan,
-                'stok'   => $request->stok,
+                'harga'   => $request->harga,
+                'stock'   => $request->stock,
             ]);
         }
 
@@ -100,8 +106,8 @@ class MenuController extends Controller
 
     public function destroy(menu $menu)
     {
-        //delete image
-        // Storage::delete('public/posts/'.$menu->foto);
+        // delete image
+        Storage::delete('public/posts/'.$menu->foto);
 
         //delete post
         $menu->delete();
