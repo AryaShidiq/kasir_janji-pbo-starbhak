@@ -6,6 +6,7 @@ use App\Models\menu;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\MenuResource;
+use App\Models\Kategori;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
@@ -28,6 +29,7 @@ class MenuController extends Controller
             'namamakanan'     => 'required',
             'foto'     => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'harga'   => 'required',
+            'kategori_id'   => 'required',
             'stock'   => 'required',
         ]);
 
@@ -45,6 +47,7 @@ class MenuController extends Controller
             'namamakanan'     => $request->namamakanan,
             'foto'     => $foto->hashName(),
             'harga'   => $request->harga,
+            'kategori_id'   => $request->kategori_id,
             'stock'   => $request->stock,
         ]);
 
@@ -55,7 +58,8 @@ class MenuController extends Controller
     public function show(menu $menu)
     {
         //return single post as a resource
-        return new MenuResource(true, 'Data Post Ditemukan!', $menu);
+        $kategori = Kategori::all();
+        return new MenuResource(true, 'Data Post Ditemukan!', $menu,$kategori);
     }
 
     public function update(Request $request, menu $menu)
@@ -64,6 +68,7 @@ class MenuController extends Controller
         $validator = Validator::make($request->all(), [
             'namamakanan'     => 'required',
             'harga'   => 'required',
+            'kategori_id'   => 'required',
             'stock'   => 'required',
         ]);
 
@@ -87,6 +92,7 @@ class MenuController extends Controller
                 'namamakanan'     => $request->namamakanan,
                 'foto'     => $foto->hashName(),
                 'harga'   => $request->harga,
+                'kategori_id'   => $request->kategori_id,
                 'stock'   => $request->stock,
             ]);
 
@@ -96,6 +102,7 @@ class MenuController extends Controller
             $menu->update([
                 'namamakanan'     => $request->namamakanan,
                 'harga'   => $request->harga,
+                'kategori_id'   => $request->kategori_id,
                 'stock'   => $request->stock,
             ]);
         }

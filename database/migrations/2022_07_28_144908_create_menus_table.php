@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('namamakanan');
             $table->string('foto');
+            $table->foreignId('kategori_id');
             $table->bigInteger('harga');
             $table->bigInteger('stock');
             $table->timestamps();

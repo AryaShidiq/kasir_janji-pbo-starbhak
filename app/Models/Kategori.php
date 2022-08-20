@@ -2,12 +2,17 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\menu;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Kategori extends Model
 {
     use HasFactory;
     protected $guarded = [''];
-    // protected $fillable = ;
+
+    public function Menu()
+    {
+        return $this->belongsTo(menu::class);
+    }
 }
