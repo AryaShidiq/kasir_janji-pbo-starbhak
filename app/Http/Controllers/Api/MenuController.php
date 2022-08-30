@@ -26,7 +26,7 @@ class MenuController extends Controller
         //define validation rules
         $validator = Validator::make($request->all(), [
 
-            'namamakanan'     => 'required',
+            'namamenu'     => 'required',
             'foto'     => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'harga'   => 'required',
             'kategori_id'   => 'required',
@@ -44,7 +44,7 @@ class MenuController extends Controller
 
         //create post
         $menu = menu::create([
-            'namamakanan'     => $request->namamakanan,
+            'namamenu'     => $request->namamenu,
             'foto'     => $foto->hashName(),
             'harga'   => $request->harga,
             'kategori_id'   => $request->kategori_id,
@@ -66,7 +66,7 @@ class MenuController extends Controller
     {
         //define validation rules
         $validator = Validator::make($request->all(), [
-            'namamakanan'     => 'required',
+            'namamenu'     => 'required',
             'harga'   => 'required',
             'kategori_id'   => 'required',
             'stock'   => 'required',
@@ -89,7 +89,7 @@ class MenuController extends Controller
 
             //update post with new image
             $menu->update([
-                'namamakanan'     => $request->namamakanan,
+                'namamenu'     => $request->namamenu,
                 'foto'     => $foto->hashName(),
                 'harga'   => $request->harga,
                 'kategori_id'   => $request->kategori_id,
@@ -100,7 +100,7 @@ class MenuController extends Controller
 
             //update post without image
             $menu->update([
-                'namamakanan'     => $request->namamakanan,
+                'namamenu'     => $request->namamenu,
                 'harga'   => $request->harga,
                 'kategori_id'   => $request->kategori_id,
                 'stock'   => $request->stock,
