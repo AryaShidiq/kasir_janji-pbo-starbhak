@@ -13,7 +13,7 @@ class KategoriController extends Controller
 {
     public function index()
     {
-        $kategori = Kategori::latest()->paginate(5);
+        $kategori = Kategori::latest()->get();
 
         return new KategoriResource(true, 'List Data Kategori', $kategori);
     }
